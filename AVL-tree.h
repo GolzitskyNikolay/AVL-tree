@@ -4,14 +4,14 @@
 #include <stdio.h>
 
 struct avl_node{
-    struct avl_node *link[2];
-    char *data;
+    struct avl_node *link[2];  // потомки
+    char *data;  // значение
     // коэффициент сбалансированности (-1, 0 или 1), разница между высотой правого и левого поддеревьев
     int balance;
 };
 
 struct avl_tree{
-    int count;
+    int count;  // количество элементов в дереве
     struct avl_node *root;
 
     // Используются в поиске позиции для вставки элемента, для пересчёта коэффициентов
@@ -22,13 +22,15 @@ struct avl_tree{
     // чтобы после вставки элемента сбалансировать дерево.
     struct avl_node **v, *x;
 
-    // Потомок x, который содержит последний вставленный узел
+    // Запоминаем w, чтобы правильно сделать балансировку.
+    // Когда нужно делать балансировку, то становится потомком x, который содержит последний вставленный узел
     struct avl_node *w;
-
 };
 
 struct avl_node *createNode(struct avl_tree *tree, char *data);
 
 int insert(struct avl_tree *tree, char *data, int stringOrNot);
+
+int delete(struct avl_tree *tree, char *data, int isString);
 
 #endif

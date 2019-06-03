@@ -1,6 +1,6 @@
 #ifndef AVL_TREE_TESTS_H
 #define AVL_TREE_TESTS_H
 
-void testForString();
+void doAllTests();
 
-#endif //AVL_TREE_TESTS_H
+#endif
